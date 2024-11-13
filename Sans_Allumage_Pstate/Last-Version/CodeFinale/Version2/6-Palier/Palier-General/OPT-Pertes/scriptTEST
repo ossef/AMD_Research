@@ -1,0 +1,116 @@
+#petit script de test
+#!/bin/bash
+
+model1='Test-SLB-mod-90';  #Nom du model créé
+gamma12='0';
+seuil1='15'
+seuil2='30'
+seuil3='45'
+seuil4='60'
+seuil5='75'
+
+
+
+if test -e $model1.cd
+then rm $model1.cd
+fi
+
+if test -e $model1.sz
+then rm $model1.sz
+fi
+
+if test -e $model1.Rii
+then rm $model1.Rii
+fi
+
+if test -e $model1.tgf
+then rm $model1.tgf
+fi
+
+if test -e $model1.pi
+then rm $model1.pi
+fi
+
+if test -e Ftest.data
+then rm Ftest.data
+fi
+
+
+#Generation de la chaine de markov
+gcc generMarkov.c -o genMarkov
+./genMarkov -f $model1 $gamma12 $seuil1 $seuil2 $seuil3 $seuil4 $seuil5
+echo 'Markov generation done !'
+
+#generation du fichier TGF
+gcc Lam2TGF.c -o lamtgf
+./lamtgf -f $model1
+echo 'TGFgeneration done !'
+
+#Calcul de la distribution stationnaire
+#gcc gthLD.c -o gthLD 
+./sparse-GTH -f $model1
+echo 'Sationnary distribution  done !'
+
+
+#Calcul des recompenses (perte/energies)
+gcc rewardComponentMit.c -o rewardMit 
+./rewardMit -f $model1 $gamma12 $seuil1 $seuil2 $seuil3 $seuil4 $seuil5
+
+
+model2='Test-LB-mod-90';  #Nom du model créé
+gamma12='1';
+
+
+if test -e $model2.cd
+then rm $model2.cd
+fi
+
+if test -e $model2.sz
+then rm $model2.sz
+fi
+
+if test -e $model2.Rii
+then rm $model2.Rii
+fi
+
+if test -e $model2.tgf
+then rm $model2.tgf
+fi
+
+if test -e $model2.pi
+then rm $model2.pi
+fi
+
+if test -e Ftest.data
+then rm Ftest.data
+fi
+
+
+
+#Generation de la chaine de markov
+gcc generMarkov.c -o genMarkov
+./genMarkov -f $model2 $gamma12 $seuil1 $seuil2 $seuil3 $seuil4 $seuil5
+echo 'Markov generation done !'
+
+
+#generation du fichier TGF
+gcc Lam2TGF.c -o lamtgf
+./lamtgf -f $model2
+echo 'TGFgeneration done !'
+
+#Calcul de la distribution stationnaire
+#gcc gthLD.c -o gthLD 
+./sparse-GTH -f $model2
+echo 'Sationnary distribution  done !'
+
+
+#Calcul des recompenses (perte/energies)
+gcc rewardComponentMit.c -o rewardMit 
+./rewardMit -f $model2 $gamma12 $seuil1 $seuil2 $seuil3 $seuil4 $seuil5
+
+
+
+
+
+R CMD BATCH "DrawTEST.R"
+

@@ -1,0 +1,229 @@
+
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+> 
+> 
+> 
+> modelname = "l5.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> PUISS =V5
+> PPW = V6
+> ENG = V7
+> 
+> library(fields)
+Le chargement a nécessité le package : spam
+Le chargement a nécessité le package : dotCall64
+Le chargement a nécessité le package : grid
+Spam version 2.6-0 (2020-12-14) is loaded.
+Type 'help( Spam)' or 'demo( spam)' for a short introduction 
+and overview of this package.
+Help for individual functions is also obtained by adding the
+suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
+
+Attachement du package : ‘spam’
+
+The following objects are masked from ‘package:base’:
+
+    backsolve, forwardsolve
+
+See https://github.com/NCAR/Fields for
+ an extensive vignette, other supplements and source code 
+> library(lattice)
+> 
+> 
+> levelplot(
++   PPW ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   main = "Lambda = 5",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> 
+> 
+> modelname = "l10.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 8):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> PUISS =V5
+> PPW = V6
+> ENG = V7
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   PPW ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   main = "Lambda = 10",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "l15.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+The following objects are masked from data (pos = 9):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> PUISS =V5
+> PPW = V6
+> ENG = V7
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   PPW ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   main = "Lambda = 15",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> 
+> modelname = "l20.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+The following objects are masked from data (pos = 10):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> PUISS =V5
+> PPW = V6
+> ENG = V7
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   PPW ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   main = "Lambda = 20",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> 
+> modelname = "l40.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+The following objects are masked from data (pos = 11):
+
+    V1, V2, V3, V4, V5, V6, V7
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> PUISS =V5
+> PPW = V6
+> ENG = V7
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   PPW ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   main = "Lambda = 40",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> proc.time()
+utilisateur     système      écoulé 
+      1.298       0.084       1.359 

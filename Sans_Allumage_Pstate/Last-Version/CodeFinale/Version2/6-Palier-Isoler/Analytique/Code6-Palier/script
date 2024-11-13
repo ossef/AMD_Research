@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+#if test -e File_Infini.resultats
+#then rm File_Infini.resultats
+#fi
+
+seuil1='10'
+seuil2='20'
+seuil3='30'
+seuil4='40'
+seuil5='50'
+
+
+gcc Naissance_Mort.c -o Naissance -lm
+./Naissance $seuil1 $seuil2 $seuil3 $seuil4 $seuil5
+

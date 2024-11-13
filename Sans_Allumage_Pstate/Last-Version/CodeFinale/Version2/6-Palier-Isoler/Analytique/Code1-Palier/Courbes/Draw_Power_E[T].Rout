@@ -1,0 +1,71 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+[Sauvegarde de la session précédente restaurée]
+
+> 
+> 
+> 
+> #------------------------------
+> modelname1 = "Power.res"
+> data1 = read.table(modelname1)
+> attach(data1);
+> 
+> L  = V1
+> P1 = V2
+> P2 = V3
+> P3 = V4
+> P4 = V5
+> P5 = V6
+> P6 = V7
+> 
+> modelname2 = "E[R].res"
+> data2 = read.table(modelname2)
+> attach(data2);
+The following objects are masked from data1:
+
+    V1, V2, V3, V4, V5, V6, V7
+
+> 
+> L  = V1
+> T1 = V2
+> T2 = V3
+> T3 = V4
+> T4 = V5
+> T5 = V6
+> T6 = V7
+> 
+> 
+> 
+> plot(P1, T1,type ="p",xlab = "Average power consumption (Watt)",xlim=c(0,2100),ylim=c(0,2), ylab = "Mean response time",col = "black",pch=16 )
+> lines(P2,T2,type ="p",col = "chocolate1",pch=18 )
+> lines(P3, T3,type ="p",col = "blue",pch=17 )
+> lines(P4,T4,type ="p",col = "brown",pch=12)
+> lines(P5, T5,type ="p",col = "green",pch=8)
+> lines(P6,T6,type ="p",col = "red",pch=15)
+> 
+> 
+> 
+> 
+> 
+> legend("topleft", legend=c("Pstate1", "Pstate2","Pstate3","Pstate4","Pstate5","Pstate6"),
++        col=c("black", "chocolate1","blue","brown","green", "red"), pch=c(16,18,17,12,8,15), cex=1)
+> 
+> 
+> proc.time()
+utilisateur     système      écoulé 
+      0.284       0.024       0.295 

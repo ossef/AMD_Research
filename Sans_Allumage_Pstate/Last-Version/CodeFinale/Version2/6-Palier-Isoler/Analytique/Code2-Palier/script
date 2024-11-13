@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+#if test -e File_Infini.resultats
+#then rm File_Infini.resultats
+#fi
+
+
+gcc Naissance_Mort.c -o Naissance -lm 
+./Naissance 
+
+
+
+
+

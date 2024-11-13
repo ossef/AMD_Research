@@ -1,0 +1,45 @@
+#------------------------------
+modelname1 = "P2_VS_P2P4.res"
+data1 = read.table(modelname1)
+attach(data1);
+
+L  = V1
+N1 = V2
+N2 = V3
+R1 = V4
+R2 = V5
+P1 = V6
+P2 = V7
+E1 = V8
+E2 = V9
+
+
+plot(L,N1,type ="b",xlab = "Lambda",ylim=c(0,70),ylab = "E[N]",main="Average mean number of tasks",col = "black",pch=15 )
+lines(L,N2,type ="b",col = "red",pch=16 )
+
+legend("topleft", legend=c("P2", "P2 & P4"),
+       col=c("black", "red"), pch=c(15,16), cex=1)
+
+
+
+plot(L,R1,type ="b",xlab = "Lambda",ylim=c(0,2),ylab = "E[T]",main="Average response time",col = "black",pch=15 )
+lines(L,R2,type ="b",col = "red",pch=16 )
+
+legend("topleft", legend=c("P2", "P2 & P4"),
+       col=c("black", "red"), pch=c(15,16), cex=1)
+       
+       
+
+plot(L,P1,type ="b",xlab = "Lambda",ylim=c(100,1900),ylab = "Power consumption (W)",main="Average power consumption",col = "black",pch=15 )
+lines(L,P2,type ="b",col = "red",pch=16 )
+
+legend("topleft", legend=c("P2", "P2 & P4"),
+       col=c("black", "red"), pch=c(15,16), cex=1)
+       
+
+
+plot(L,E1,type ="b",xlab = "Lambda",ylim=c(0,300),ylab = "Energy consumption",main="Energy consumption per job",col = "black",pch=15 )
+lines(L,E2,type ="b",col = "red",pch=16 )
+
+legend("topright", legend=c("P2", "P2 & P4"),
+       col=c("black", "red"), pch=c(15,16), cex=1)

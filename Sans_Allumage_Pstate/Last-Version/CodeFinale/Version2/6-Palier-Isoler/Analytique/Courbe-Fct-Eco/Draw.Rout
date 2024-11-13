@@ -1,0 +1,219 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+[Sauvegarde de la session précédente restaurée]
+
+> #------------------------------
+> modelname1 = "P1_P6_P1P2_P1P6.res"
+> data1 = read.table(modelname1)
+> attach(data1);
+> 
+> L = V1
+> 
+> R1  = V2
+> P1 = V3
+> R2  = V4
+> P2 = V5
+> R3  = V6
+> P3 = V7
+> R4  = V8
+> P4 = V9
+> R5  = V10
+> P5 = V11
+> R6 = V12
+> P6 = V13
+> 
+> R12 = V14
+> P12 = V15
+> R16 = V16
+> P16 = V17
+> 
+> #ER1 = (R1 - R6)/(R1 - R6)
+> #PR1 = (P1 - P1)/(P6 - P1)
+> 
+> #ER6 = (R6 - R6)/(R1 - R6)
+> #PR6 = (P6 - P1)/(P6 - P1)
+> 
+> 
+> #ER12 = (R12 - R6)/(R1 - R6)
+> #PR12 = (P12 - P1)/(P6 - P1)
+> 
+> #ER16 = (R16 - R6)/(R1 - R6)
+> #PR16 = (P16 - P1)/(P6 - P1)
+> 
+> #f1 = ER1 + PR1
+> #f6 =  ER6 + PR6
+> #f12 = ER12 + PR12
+> #f16 = ER16 + PR16
+> 
+> ER1 = R1/R1
+> PR1 = P1/P6
+> 
+> ER2 = R2/R1
+> PR2 = P2/P6
+> 
+> ER3 = R3/R1
+> PR3 = P3/P6
+> 
+> ER4 = R4/R1
+> PR4 = P4/P6
+> 
+> ER5 = R5/R1
+> PR5 = P5/P6
+> 
+> ER6 = R6/R1
+> PR6 = P6/P6
+> 
+> ER12 = R12/R1
+> PR12 = P12/P6
+> 
+> ER16 = R16/R1
+> PR16 = P16/P6
+> 
+> f1 = ER1 + PR1
+> f2 = ER2 + PR2
+> f3 = ER3 + PR3
+> f4 = ER4 + PR4
+> f5 = ER5 + PR5
+> f6 = ER6 + PR6
+> f12 = ER12 + PR12
+> f16 = ER16 + PR16
+> 
+> plot(L,ER1,type ="b",xlab = "Lambda",ylim= c(0,1),ylab = "Temps de réponse Relatife (%)",main="Temps de réponse Relatif",col = "black",pch=16 )
+> lines(L,ER2,type ="b",col = "red",pch=15 )
+> lines(L,ER3,type ="b",col = "green",pch=14 )
+> lines(L,ER4,type ="b",col = "yellow",pch=13 )
+> lines(L,ER5,type ="b",col = "pink",pch=12 )
+> lines(L,ER6,type ="b",col = "blue",pch=11 )
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> plot(L,R1,type ="b",xlab = "Lambda",ylim= c(0,2),ylab = "Temps de réponse",main="Temps de réponse ",col = "black",pch=16 )
+> lines(L,R2,type ="b",col = "red",pch=15 )
+> lines(L,R3,type ="b",col = "green",pch=14 )
+> lines(L,R4,type ="b",col = "yellow",pch=13 )
+> lines(L,R5,type ="b",col = "pink",pch=12 )
+> lines(L,R6,type ="b",col = "blue",pch=11 )
+> legend("topleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+> 
+> 
+> plot(L,PR1,type ="b",xlab = "Lambda",ylim= c(0,1),ylab = "Puissance Relative (%)",main="Puissance Relative",col = "black",pch=16 )
+> lines(L,PR2,type ="b",col = "red",pch=15 )
+> lines(L,PR3,type ="b",col = "green",pch=14 )
+> lines(L,PR4,type ="b",col = "yellow",pch=13 )
+> lines(L,PR5,type ="b",col = "pink",pch=12 )
+> lines(L,PR6,type ="b",col = "blue",pch=11 )
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> plot(L,P1,type ="b",xlab = "Lambda",ylim= c(0,1900),ylab = "Puissance (Watts) ",main="Puissance Moyenne",col = "black",pch=16 )
+> lines(L,P2,type ="b",col = "red",pch=15 )
+> lines(L,P3,type ="b",col = "green",pch=14 )
+> lines(L,P4,type ="b",col = "yellow",pch=13 )
+> lines(L,P5,type ="b",col = "pink",pch=12 )
+> lines(L,P6,type ="b",col = "blue",pch=11 )
+> legend("topleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+> 
+> 
+> 
+> 
+> plot(L,f1,type ="b",xlab = "Lambda",ylim = c(0.3,2),ylab = "f(E[T],Power)",main="fonction économique1 (C1,C2) =(1,1)",col = "black",pch=16 )
+> lines(L,f2,type ="b",col = "red",pch=15 )
+> lines(L,f3,type ="b",col = "green",pch=14 )
+> lines(L,f4,type ="b",col = "yellow",pch=13 )
+> lines(L,f5,type ="b",col = "pink",pch=12 )
+> lines(L,f6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> plot(L,ER1 + 2*PR1,type ="b",xlab = "Lambda",ylim = c(0.3,3),ylab = "f(E[T],Power)",main="fonction économique3 (C1,C2) =(1,2)",col = "black",pch=16 )
+> lines(L,ER2 + 2*PR2,type ="b",col = "red",pch=15 )
+> lines(L,ER3 + 2*PR3,type ="b",col = "green",pch=14 )
+> lines(L,ER4 + 2*PR4,type ="b",col = "yellow",pch=13 )
+> lines(L,ER5 + 2*PR5,type ="b",col = "pink",pch=12 )
+> lines(L,ER6 + 2*PR6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> 
+> plot(L,2*ER1 + PR1,type ="b",xlab = "Lambda",ylim = c(0.3,3),ylab = "f(E[T],Power)",main="fonction économique2 (C1,C2) =(2,1)",col = "black",pch=16 )
+> lines(L,2*ER2 + PR2,type ="b",col = "red",pch=15 )
+> lines(L,2*ER3 + PR3,type ="b",col = "green",pch=14 )
+> lines(L,2*ER4 + PR4,type ="b",col = "yellow",pch=13 )
+> lines(L,2*ER5 + PR5,type ="b",col = "pink",pch=12 )
+> lines(L,2*ER6 + PR6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> 
+> plot(L,3*ER1 + PR1,type ="b",xlab = "Lambda",ylim = c(0.3,4),ylab = "f(E[T],Power)",main="fonction économique2 (C1,C2) =(3,1)",col = "black",pch=16 )
+> lines(L,3*ER2 + PR2,type ="b",col = "red",pch=15 )
+> lines(L,3*ER3 + PR3,type ="b",col = "green",pch=14 )
+> lines(L,3*ER4 + PR4,type ="b",col = "yellow",pch=13 )
+> lines(L,3*ER5 + PR5,type ="b",col = "pink",pch=12 )
+> lines(L,3*ER6 + PR6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+> 
+> plot(L,4*ER1 + PR1,type ="b",xlab = "Lambda",ylim = c(0.3,5),ylab = "f(E[T],Power)",main="fonction économique2 (C1,C2) =(4,1)",col = "black",pch=16 )
+> lines(L,4*ER2 + PR2,type ="b",col = "red",pch=15 )
+> lines(L,4*ER3 + PR3,type ="b",col = "green",pch=14 )
+> lines(L,4*ER4 + PR4,type ="b",col = "yellow",pch=13 )
+> lines(L,4*ER5 + PR5,type ="b",col = "pink",pch=12 )
+> lines(L,4*ER6 + PR6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> 
+> plot(L,5*ER1 + PR1,type ="b",xlab = "Lambda",ylim = c(0.3,6),ylab = "f(E[T],Power)",main="fonction économique2 (C1,C2) =(5,1)",col = "black",pch=16 )
+> lines(L,5*ER2 + PR2,type ="b",col = "red",pch=15 )
+> lines(L,5*ER3 + PR3,type ="b",col = "green",pch=14 )
+> lines(L,5*ER4 + PR4,type ="b",col = "yellow",pch=13 )
+> lines(L,5*ER5 + PR5,type ="b",col = "pink",pch=12 )
+> lines(L,5*ER6 + PR6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+>        
+> plot(R1, P1,type ="b",xlab = "Mean response time",ylim = c(0,1900),ylab = "Average Power consumption (Watts)",col = "black",pch=16 )
+> lines(R2, P2,type ="b",col = "red",pch=15 )
+> lines(R3, P3,type ="b",col = "green",pch=14 )
+> lines(R4, P4,type ="b",col = "yellow",pch=13 )
+> lines(R5, P5,type ="b",col = "pink",pch=12 )
+> lines(R6, P6,type ="b",col = "blue",pch=11 )
+> 
+> legend("bottomleft", legend=c("P1", "P2", "P3","P4","P5","P6"),
++        col=c("black", "red", "green","yellow","pink","blue"), pch=c(16,15,14,13,12,11), cex=1)
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> proc.time()
+utilisateur     système      écoulé 
+      0.312       0.032       0.332 

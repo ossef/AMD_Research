@@ -1,0 +1,518 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+[Sauvegarde de la session précédente restaurée]
+
+> 
+> modelname = "EXP1.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+Le chargement a nécessité le package : spam
+Le chargement a nécessité le package : dotCall64
+Le chargement a nécessité le package : grid
+Spam version 2.2-0 (2018-06-19) is loaded.
+Type 'help( Spam)' or 'demo( spam)' for a short introduction 
+and overview of this package.
+Help for individual functions is also obtained by adding the
+suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
+
+Attachement du package : ‘spam’
+
+The following objects are masked from ‘package:base’:
+
+    backsolve, forwardsolve
+
+Le chargement a nécessité le package : maps
+See www.image.ucar.edu/~nychka/Fields for
+ a vignette and other supplements. 
+Warning message:
+In FUN(X[[i]], ...) :
+  impossible d'assigner RegisteredNativeSymbol pour toeplitz à toeplitz parce que toeplitz est déjà défini dans l'espace de noms ‘spam’
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience1: c1 = 1 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> 
+> 
+> modelname = "EXP2.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 9):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience2: c1 = 10 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> 
+> modelname = "EXP3.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 10):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience3: c1 = 1 et c2 = 10",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "EXP4.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 11):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience4: c1 = 100 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "EXP5.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 12):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience5: c1 = 150 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "EXP6.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 6):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 13):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience6: c1 = 200 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> 
+> modelname = "EXP7.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 6):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 7):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 14):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience7: c1 = 500 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "EXP8.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 6):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 7):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 8):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 15):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience8: c1 = 1000 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "EXP9.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 6):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 7):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 8):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 9):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 16):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience8: c1 = 1000 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> modelname = "EXP10.data"
+> 
+> data = read.table(modelname)
+> attach(data);
+The following objects are masked from data (pos = 3):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 4):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 5):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 6):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 7):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 8):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 9):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 10):
+
+    V1, V2, V3, V4, V5, V6
+
+The following objects are masked from data (pos = 17):
+
+    V1, V2, V3, V4, V5, V6
+
+> I =V1
+> J =V2
+> SEUIL =V3
+> TREPONSE = V4
+> ENERGIE =V5
+> FCCOUT = V6
+> 
+> 
+> library(fields)
+> library(lattice)
+> 
+> 
+> levelplot(
++   FCCOUT ~ J*I, data = data, 
++   xlab = "Pstate j", ylab = " Pstate i",
++   #main = "Fonction economique, experience8: c1 = 1000 et c2 = 1",
++   col.regions = terrain.colors(50),  #cm terrain topo heat
++   
++   aspect="fill",
++   panel = function(...){
++ 			  panel.levelplot(...)
++               panel.text(J, I, SEUIL,col="blue")
++               }
++ )
+> 
+> proc.time()
+utilisateur     système      écoulé 
+      1.620       0.036       1.650 

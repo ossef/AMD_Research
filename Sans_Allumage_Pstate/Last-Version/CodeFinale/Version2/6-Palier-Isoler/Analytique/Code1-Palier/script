@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+if test -e File_Infini.resultats
+then rm File_Infini.resultats
+fi
+
+LambdaMax='40'; #'52';
+gcc MMm.c -o MMm -lm
+
+for ((Lambda = 1; Lambda < $LambdaMax; Lambda+=2 ))
+do 
+
+./MMm $Lambda 
+
+done

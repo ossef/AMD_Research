@@ -1,0 +1,9 @@
+#petit script de test
+#!/bin/bash
+
+
+gcc HeatMap.c -o Heat
+time -p ./Heat
+
+
+R CMD BATCH "DrawHeat.R"

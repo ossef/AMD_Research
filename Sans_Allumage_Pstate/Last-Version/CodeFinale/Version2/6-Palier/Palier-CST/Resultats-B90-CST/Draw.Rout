@@ -1,0 +1,76 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+[Sauvegarde de la session précédente restaurée]
+
+> 
+> #------------------------------
+> modelname1 = "L1-20.resultat"
+> data1 = read.table(modelname1)
+> attach(data1);
+> 
+> L  = V1
+> E1 = V2
+> E2 = V3
+> E3 = V4
+> E4 = V5
+> 
+> 
+> plot(L,E1,type ="b",xlab = "Lambda2",ylim=c(500,3600),ylab = "System's Energy consumption (W)",main="Energy consumption, Lambda1 = 20",col = "black",pch=15 )
+> lines(L,E2,type ="b",col = "red",pch=16 )
+> lines(L,E3,type ="b",col = "black",pch=17 )
+> lines(L,E4,type ="b",col = "red",pch=8)
+> 
+> legend("topleft", legend=c("10 servers, no migrations", "10 servers, with migrations","20 servers, no migrations","20 servers, with migrations"),
++        col=c("black", "red","black","red"), pch=c(15,16,17,8), cex=1)
+> 
+> 
+> #------------------------------
+> modelname2 = "L1-25.resultat"
+> data2 = read.table(modelname2)
+> attach(data2);
+The following objects are masked from data1:
+
+    V1, V2, V3, V4, V5
+
+> 
+> L  = V1
+> E1 = V2
+> E2 = V3
+> E3 = V4
+> E4 = V5
+> 
+> 
+> plot(L,E1,type ="b",xlab = "Lambda2",ylim=c(500,3600),ylab = "System's Energy consumption (W)",main="Energy consumption, Lambda1 = 25",col = "black",pch=15 )
+> lines(L,E2,type ="b",col = "red",pch=16 )
+> lines(L,E3,type ="b",col = "black",pch=17 )
+> lines(L,E4,type ="b",col = "red",pch=8)
+> 
+> legend("topleft", legend=c("10 servers, no migrations", "10 servers, with migrations","20 servers, no migrations","20 servers, with migrations"),
++        col=c("black", "red","black","red"), pch=c(15,16,17,8), cex=1)
+> 
+> 
+> 
+> 
+> #legend(x="topright",legend=c("Scenario A","Scenario B"),text.col=c("black","red"),col=c("black","red"),lty=1:1, cex=1.2)
+> 
+> 
+> 
+> 
+> proc.time()
+utilisateur     système      écoulé 
+      0.284       0.024       0.304 

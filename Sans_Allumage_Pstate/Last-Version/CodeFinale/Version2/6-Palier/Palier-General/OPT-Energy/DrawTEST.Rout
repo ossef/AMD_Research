@@ -1,0 +1,97 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R est un logiciel libre livré sans AUCUNE GARANTIE.
+Vous pouvez le redistribuer sous certaines conditions.
+Tapez 'license()' ou 'licence()' pour plus de détails.
+
+R est un projet collaboratif avec de nombreux contributeurs.
+Tapez 'contributors()' pour plus d'information et
+'citation()' pour la façon de le citer dans les publications.
+
+Tapez 'demo()' pour des démonstrations, 'help()' pour l'aide
+en ligne ou 'help.start()' pour obtenir l'aide au format HTML.
+Tapez 'q()' pour quitter R.
+
+[Sauvegarde de la session précédente restaurée]
+
+> 
+> model1='Test-SLB-mod-90.cd'
+> data1 = read.table(model1)
+> attach(data1);
+> 
+> X = V1
+> X1 =V2
+> X2 =V3
+> 
+> model2='Test-SLB-mod-90.pi'
+> data2 = read.table(model2)
+> attach(data2);
+The following object is masked from data1:
+
+    V1
+
+> 
+> PI = V1
+> 
+> 
+> library(fields)
+Le chargement a nécessité le package : spam
+Le chargement a nécessité le package : dotCall64
+Le chargement a nécessité le package : grid
+Spam version 2.2-2 (2019-03-07) is loaded.
+Type 'help( Spam)' or 'demo( spam)' for a short introduction 
+and overview of this package.
+Help for individual functions is also obtained by adding the
+suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
+
+Attachement du package : ‘spam’
+
+The following objects are masked from ‘package:base’:
+
+    backsolve, forwardsolve
+
+Le chargement a nécessité le package : maps
+See www.image.ucar.edu/~nychka/Fields for
+ a vignette and other supplements. 
+Warning message:
+In FUN(X[[i]], ...) :
+  impossible d'assigner RegisteredNativeSymbol pour toeplitz à toeplitz parce que toeplitz est déjà défini dans l'espace de noms ‘spam’
+> library(lattice)
+> 
+> levelplot(
++   log10(PI) ~ X1*X2,zlim=c(-45,0),
++   xlab = "X1", ylab = "X2",
++   aspect="fill",
++   col.regions = topo.colors(50)  #cm terrain topo heat
++ )
+> 
+> 
+> model3='Test-LB-mod-90.pi'
+> data3 = read.table(model3)
+> attach(data3);
+The following object is masked from data2:
+
+    V1
+
+The following object is masked from data1:
+
+    V1
+
+> 
+> 
+> PI = V1
+> 
+> 
+> levelplot(
++   log10(PI) ~ X1*X2,
++   xlab = "X1", ylab = "X2",
++   aspect="fill",
++   col.regions = topo.colors(50)  #cm terrain topo heat
++ )
+> 
+> proc.time()
+utilisateur     système      écoulé 
+      1.380       0.044       1.419 
