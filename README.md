@@ -16,7 +16,7 @@ function. An extension of this work can be found in [2].
 
 #  Contributors & Copyright
 
-- [Leo LE CORRE](https://github.com/KarmaEssence)
+- [Youssef AIT EL MAHJOUB](https://github.com/ossef)
 - This code is open source. The original document is [1] or [2].
 
 [1] "Performance evaluation and energy consumption for DVFS processor", Youssef AIT EL MAHJOUB, Hind CASTEL-TALEB and Jean-Michel Fourneau". In the 26th International Conference on Analytical & Stochastic Modelling Techniques & Applications, ASMTA, 2021.
